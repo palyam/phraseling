@@ -86,7 +86,6 @@ phraseling --log
 1. **Create the shortcut manually**:
    - Open the **Shortcuts** app on your Mac
    - Click **"+"** to create a new shortcut
-   - Add **"Receive"** action → Set to **"Apps and 2 more"** from **"Quick Actions"**
    - Add **"Run Shell Script"** action with these settings:
      - **Script**: `phraseling "$1"` (or `/Users/yourusername/.local/bin/phraseling "$1"` if not in PATH)
      - **Shell**: `zsh...`
@@ -94,6 +93,9 @@ phraseling --log
      - **Pass Input**: `as arguments`
      - **Run as Administrator**: ✓ (checked)
    - Add **"Stop and output"** action → Set to **"Shell Script Result"**
+
+   ![Shortcut Setup](screenshots/shortcut-setup.png)
+   *Configure the Run Shell Script action with these exact settings*
 
 2. **Configure shortcut settings**:
    - **Details tab**:
@@ -104,9 +106,15 @@ phraseling --log
      - ✓ Provide Output
      - **Run with**: `⌃⌥Q` (or your preferred shortcut)
 
+   ![Shortcut Details](screenshots/shortcut-details.png)
+   *Enable Services Menu and Use as Quick Action for system-wide access*
+
    - **Privacy tab**:
      - ✓ Allow Running When Locked
      - ✓ Allow this shortcut to access **Shell**
+
+   ![Shortcut Privacy](screenshots/shortcut-privacy.png)
+   *Grant Shell access permissions for the shortcut to work*
 
 3. **Save and use**:
    - Save the shortcut as **"Phraseling"**

@@ -32,7 +32,6 @@ class Phraseling < Formula
     puts ""
     puts "3. Set up Mac shortcut (optional):"
     puts "   • Open Shortcuts app → Create new shortcut"
-    puts "   • Add 'Receive' action (Apps and 2 more from Quick Actions)"
     puts "   • Add 'Run Shell Script' action:"
     puts "     - Script: phraseling \"$1\""
     puts "     - Pass Input: as arguments"
