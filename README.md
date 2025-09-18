@@ -35,13 +35,28 @@ ollama pull gpt-oss:latest
 phraseling "hey whats up how r u doing"
 ```
 
-### Option 2: One-line Install
+### Option 2: Manual Install
 
 ```bash
-curl -fsSL https://install.phraseling.com | bash
-```
+# Clone repository
+git clone https://github.com/palyam/phraseling.git
+cd phraseling
 
-That's it! The installer handles everything: Homebrew, Ollama, models, and Mac shortcuts.
+# Install to PATH
+mkdir -p ~/.local/bin
+cp bin/phraseling ~/.local/bin/
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
+
+# Restart terminal or source the file
+source ~/.zshrc
+
+# Install Ollama and a model
+brew install ollama
+ollama pull gpt-oss:latest
+
+# Test it out
+phraseling "hey whats up how r u doing"
+```
 
 ## 📖 Usage
 
@@ -73,7 +88,7 @@ phraseling --log
    - Click **"+"** to create a new shortcut
    - Add **"Receive"** action → Set to **"Apps and 2 more"** from **"Quick Actions"**
    - Add **"Run Shell Script"** action with these settings:
-     - **Script**: `phraseling "$1"`
+     - **Script**: `phraseling "$1"` (or `/Users/yourusername/.local/bin/phraseling "$1"` if not in PATH)
      - **Shell**: `zsh...`
      - **Input**: `Shortcut Input`
      - **Pass Input**: `as arguments`
@@ -200,13 +215,18 @@ IMPROVED_TEXT=$(phraseling "$ORIGINAL_TEXT")
 
 ### Common Issues
 
-**"Command not found"**
+**"Command not found: phraseling"**
 ```bash
-# Make sure it's in your PATH
-echo $PATH
+# Option 1: Add to PATH (recommended)
+mkdir -p ~/.local/bin
+cp /path/to/phraseling/bin/phraseling ~/.local/bin/
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
 source ~/.zshrc
 
-# Or install via Homebrew
+# Option 2: Use full path in shortcuts
+/Users/yourusername/.local/bin/phraseling "$1"
+
+# Option 3: Install via Homebrew
 brew install palyam/phraseling/phraseling
 ```
 

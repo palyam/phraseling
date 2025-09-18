@@ -40,6 +40,9 @@ class Phraseling < Formula
     puts "   • Configure: Enable Services Menu, Use as Quick Action"
     puts "   • Save as 'Phraseling'"
     puts ""
+    puts "⚠️  If shortcut shows 'command not found':"
+    puts "   Use full path: #{HOMEBREW_PREFIX}/bin/phraseling \"$1\""
+    puts ""
     puts "📖 Full documentation: https://github.com/palyam/phraseling"
     puts ""
   end
