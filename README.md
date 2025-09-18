@@ -68,7 +68,17 @@ phraseling --log
 
 ### Mac Shortcuts Integration
 
-1. **Import the shortcut** (happens automatically during install)
+1. **Create the shortcut manually**:
+   - Open the **Shortcuts** app on your Mac
+   - Click **"+"** to create a new shortcut
+   - Add **"Run Shell Script"** action
+   - Set **"Pass input"** to **"to stdin"**
+   - Paste this script:
+     ```bash
+     echo "$1" | xargs phraseling
+     ```
+   - Save the shortcut as **"Phraseling"**
+
 2. **Assign a keyboard shortcut**:
    - System Settings → Keyboard → Keyboard Shortcuts
    - Services → Find "Phraseling"
@@ -78,6 +88,8 @@ phraseling --log
    - Select text in any app
    - Press your keyboard shortcut
    - Text gets replaced with improved version
+
+> **Note**: Due to macOS security restrictions, shortcut files cannot be auto-imported during installation.
 
 ### Examples
 
@@ -206,9 +218,10 @@ ollama list
 ```
 
 **Mac shortcut not working**
-1. Check System Settings → Privacy & Security → Automation
-2. Ensure Shortcuts app has necessary permissions
-3. Re-import the shortcut file
+1. Recreate the shortcut manually in Shortcuts app
+2. Check System Settings → Privacy & Security → Automation
+3. Ensure Shortcuts app has necessary permissions
+4. Verify the shell script is correct: `echo "$1" | xargs phraseling`
 
 ### Debug Mode
 

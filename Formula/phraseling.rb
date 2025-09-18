@@ -2,16 +2,16 @@ class Phraseling < Formula
   desc "Transform text with local AI - Private, Fast, Free"
   homepage "https://github.com/palyam/phraseling"
   url "https://github.com/palyam/phraseling/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
+  sha256 "393bbeb16e909a0121fe379fc0e919fae288ead9660d7b403bad3b256af9b1db"
   license "MIT"
   version "1.0.0"
 
-  depends_on "ollama"
+# depends_on "ollama"  # Optional dependency
 
   def install
     bin.install "bin/phraseling"
 
-    # Install shortcut template
+    # Install shortcut template for manual setup
     pkgshare.install "shortcuts/Phraseling.shortcut"
 
     # Install documentation
@@ -23,17 +23,22 @@ class Phraseling < Formula
     puts "✨ Phraseling installed successfully!"
     puts ""
     puts "📋 Next steps:"
-    puts "1. Install a language model:"
+    puts "1. Install Ollama and a language model:"
+    puts "   brew install ollama"
     puts "   ollama pull gpt-oss:latest"
     puts ""
-    puts "2. Import Mac shortcut:"
-    puts "   open #{pkgshare}/Phraseling.shortcut"
-    puts ""
-    puts "3. Test the tool:"
+    puts "2. Test the command line tool:"
     puts "   phraseling \"hello world\""
     puts ""
-    puts "📖 Documentation: phraseling --help"
-    puts "🔧 Configuration: phraseling --config"
+    puts "3. Set up Mac shortcut (optional):"
+    puts "   • Open Shortcuts app"
+    puts "   • Create new shortcut"
+    puts "   • Add 'Run Shell Script' action"
+    puts "   • Paste: echo \"$1\" | xargs phraseling"
+    puts "   • Set input to 'Shortcut Input'"
+    puts "   • Save as 'Phraseling'"
+    puts ""
+    puts "📖 Full documentation: https://github.com/palyam/phraseling"
     puts ""
   end
 
