@@ -1,0 +1,82 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            ## Installation
+
+            ### Homebrew (Recommended)
+            ```bash
+            brew tap USERNAME/phraseling
+            brew install phraseling
+            ```
+
+            ### One-line install
+            ```bash
+            curl -fsSL https://install.phraseling.com | bash
+            ```
+
+            ### Manual install
+            1. Download `phraseling` binary
+            2. Make executable: `chmod +x phraseling`
+            3. Move to PATH: `mv phraseling /usr/local/bin/`
+
+            ## What's New
+            - Initial release of Phraseling ✨
+            - Local AI-powered text rephrasing
+            - Mac Shortcuts integration
+            - Multiple prompt styles (professional, casual, formal)
+            - Daily log rotation with latest entries at top
+            - Zero-config setup with sensible defaults
+
+            ## Requirements
+            - macOS 12.0+
+            - Ollama (automatically installed via installer)
+            - At least one language model (e.g., `ollama pull gpt-oss:latest`)
+
+            ## Features
+            - 🔒 100% Private - runs entirely offline
+            - ⚡ Lightning fast with local models
+            - 🎨 Multiple writing styles
+            - 🔗 Seamless Mac integration
+            - 💰 Free forever
+          draft: false
+          prerelease: false
+
+      - name: Upload Binary
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./bin/phraseling
+          asset_name: phraseling
+          asset_content_type: application/octet-stream
+
+      - name: Upload Shortcut
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./shortcuts/Phraseling.shortcut
+          asset_name: Phraseling.shortcut
+          asset_content_type: application/octet-stream

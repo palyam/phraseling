@@ -1,0 +1,49 @@
+{
+  "WFWorkflowMinimumClientVersionString": "900",
+  "WFWorkflowMinimumClientVersion": 900,
+  "WFWorkflowIcon": {
+    "WFWorkflowIconStartColor": 2846468607,
+    "WFWorkflowIconGlyphNumber": 61440
+  },
+  "WFWorkflowClientVersion": "2605.0.5",
+  "WFWorkflowOutputContentItemClasses": [
+    "WFStringContentItem"
+  ],
+  "WFWorkflowHasOutputFallback": false,
+  "WFWorkflowActions": [
+    {
+      "WFWorkflowActionIdentifier": "is.workflow.actions.receivetext",
+      "WFWorkflowActionParameters": {
+        "WFInput": "Text and Rich text",
+        "WFInputFrom": "Quick Actions"
+      }
+    },
+    {
+      "WFWorkflowActionIdentifier": "is.workflow.actions.runshellscript",
+      "WFWorkflowActionParameters": {
+        "WFInput": "WFWorkflowActionParameters",
+        "WFInputType": "WFWorkflowActionParameterOptionPassed",
+        "WFShellScriptActionScript": "phraseling \"$1\"",
+        "WFShellScriptActionShell": "/bin/zsh",
+        "WFPassInputType": "as arguments"
+      }
+    },
+    {
+      "WFWorkflowActionIdentifier": "is.workflow.actions.output",
+      "WFWorkflowActionParameters": {
+        "WFOutput": "WFWorkflowActionParameters"
+      }
+    }
+  ],
+  "WFWorkflowInputContentItemClasses": [
+    "WFStringContentItem"
+  ],
+  "WFWorkflowImportQuestions": [],
+  "WFQuickActionSurfaces": [
+    "ServicesMenu"
+  ],
+  "WFWorkflowTypes": [
+    "QuickAction"
+  ],
+  "WFWorkflowHasShortcutInputVariables": false
+}
