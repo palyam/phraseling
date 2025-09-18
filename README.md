@@ -71,22 +71,32 @@ phraseling --log
 1. **Create the shortcut manually**:
    - Open the **Shortcuts** app on your Mac
    - Click **"+"** to create a new shortcut
-   - Add **"Run Shell Script"** action
-   - Set **"Pass input"** to **"to stdin"**
-   - Paste this script:
-     ```bash
-     echo "$1" | xargs phraseling
-     ```
+   - Add **"Receive"** action → Set to **"Apps and 2 more"** from **"Quick Actions"**
+   - Add **"Run Shell Script"** action with these settings:
+     - **Script**: `phraseling "$1"`
+     - **Shell**: `zsh...`
+     - **Input**: `Shortcut Input`
+     - **Pass Input**: `as arguments`
+     - **Run as Administrator**: ✓ (checked)
+   - Add **"Stop and output"** action → Set to **"Shell Script Result"**
+
+2. **Configure shortcut settings**:
+   - **Details tab**:
+     - ✓ Show in Share Sheet
+     - ✓ Show in Spotlight
+     - ✓ Use as Quick Action
+     - ✓ Services Menu
+     - ✓ Provide Output
+     - **Run with**: `⌃⌥Q` (or your preferred shortcut)
+
+   - **Privacy tab**:
+     - ✓ Allow Running When Locked
+     - ✓ Allow this shortcut to access **Shell**
+
+3. **Save and use**:
    - Save the shortcut as **"Phraseling"**
-
-2. **Assign a keyboard shortcut**:
-   - System Settings → Keyboard → Keyboard Shortcuts
-   - Services → Find "Phraseling"
-   - Assign your preferred keys (e.g., `⌃⌥R`)
-
-3. **Use it anywhere**:
    - Select text in any app
-   - Press your keyboard shortcut
+   - Press your keyboard shortcut (`⌃⌥Q`)
    - Text gets replaced with improved version
 
 > **Note**: Due to macOS security restrictions, shortcut files cannot be auto-imported during installation.
