@@ -1,7 +1,7 @@
 class Phraseling < Formula
   desc "Transform text with local AI - Private, Fast, Free"
-  homepage "https://github.com/USERNAME/phraseling"
-  url "https://github.com/USERNAME/phraseling/archive/refs/tags/v1.0.0.tar.gz"
+  homepage "https://github.com/palyam/phraseling"
+  url "https://github.com/palyam/phraseling/archive/refs/tags/v1.0.0.tar.gz"
   sha256 "SHA256_HASH_HERE" # This will be generated when you create the release
   license "MIT"
   version "1.0.0"

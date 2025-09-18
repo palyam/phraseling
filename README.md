@@ -23,7 +23,7 @@ Phraseling is a powerful command-line tool that uses local AI models to instantl
 
 ```bash
 # Add our tap
-brew tap USERNAME/phraseling
+brew tap palyam/phraseling
 
 # Install
 brew install phraseling
@@ -185,7 +185,7 @@ echo $PATH
 source ~/.zshrc
 
 # Or install via Homebrew
-brew install USERNAME/phraseling/phraseling
+brew install palyam/phraseling/phraseling
 ```
 
 **"Ollama not found"**
@@ -246,7 +246,7 @@ phraseling/
 
 ```bash
 # Clone repository
-git clone https://github.com/USERNAME/phraseling.git
+git clone https://github.com/palyam/phraseling.git
 cd phraseling
 
 # Make executable
@@ -280,17 +280,17 @@ phraseling --version
 
 ### 🍺 How Homebrew + GitHub Works
 
-1. **Main Repository**: `github.com/USERNAME/phraseling`
+1. **Main Repository**: `github.com/palyam/phraseling`
    - Contains your source code and releases
    - Users download from here
 
-2. **Homebrew Tap**: `github.com/USERNAME/homebrew-phraseling`
+2. **Homebrew Tap**: `github.com/palyam/homebrew-phraseling`
    - Contains the Formula (recipe) for installation
    - Points to releases in your main repository
 
 3. **Installation Flow**:
    ```bash
-   brew tap USERNAME/phraseling        # Adds your tap
+   brew tap palyam/phraseling        # Adds your tap
    brew install phraseling             # Downloads from GitHub & installs
    ```
 
@@ -303,8 +303,8 @@ phraseling --version
 ## 🤝 Support
 
 - 📚 **Documentation**: See this README
-- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/USERNAME/phraseling/issues)
-- 💡 **Feature Requests**: [GitHub Discussions](https://github.com/USERNAME/phraseling/discussions)
+- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/palyam/phraseling/issues)
+- 💡 **Feature Requests**: [GitHub Discussions](https://github.com/palyam/phraseling/discussions)
 
 ## 📜 License
 
